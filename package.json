@@ -1,0 +1,9 @@
+{
+  "name": "alicerce",
+  "version": "0.0.0",
+  "description": "UI component library css",
+  "main": "index.js",
+  "author": "Luiz tanure <letanure@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
