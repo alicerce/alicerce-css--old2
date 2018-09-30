@@ -94,33 +94,30 @@ body
       font-style italic
 
 // Lists
+[class*="list"]
+  --margin var(--font-size)
+  margin-left  calc(var(--margin) * 1)
 
-.is-ul, .is-ol
-  margin-left 26px
-  font-size 14px
-  line-height 30px
-  font-family SourceSansPro-Semibold
-  color #354052
+.list
 
-.is-ul
-  list-style none
+  &Ordered
+    counter-reset section
+    list-style-type none
 
-  li:before
-    background-color rgba(53,64,82,0.50)
-    content ''
-    circle(6px)
-    margin-right 14px
+    li:before
+      // color #7F8FA4
+      content counters(section, '-') '.'
+      counter-increment section
+      outline: 1px solid blue
 
-.is-ol
-  counter-reset section
-  list-style-type none
+    li
+      outline: 1px solid purple
 
-  li:before
-    color #7F8FA4
-    content counters(section, '-') '.'
-    counter-increment section
-    font-family SourceSansPro-Regular
-    margin-right 14px
+  &Unordered
+    list-style none
 
-// li
-//   color #354052
+    li:before
+      background-color rgba(53,64,82,0.50)
+      content ''
+      circle(6px)
+      margin-right 14px
