@@ -1,0 +1,41 @@
+.doc-grid
+  h1 Grid
+
+  h1 Grid examples
+
+  .container
+    .row
+      .column.is-12 container
+
+  .section
+    .row
+      .column.is-12 Section
+
+  h2 Basic columns
+  - for (var countRows = 1; countRows <= 12; countRows++)
+    .row
+      .column(class="is-" + countRows) #{countRows}
+
+  h2 Nested columns
+
+  .row
+    .column.is-6
+      .row
+        .column.is-4 4
+        .column.is-4 4
+        .column.is-4 4
+    .column.is-6 6
+  .row
+    .column.is-2 2
+    .column.is-2 2
+    .column.is-2 2
+
+
+
+  //- .row
+    - for (var columnNr = 1; columnNr <= 12; columnNr++)
+      .column(class="is-1") #{columnNr}
+  //- .row
+    - for (var columnNr = 1; columnNr <= 12; columnNr++)
+      .column(class="is-"+columnNr) #{columnNr}
+

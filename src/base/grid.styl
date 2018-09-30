@@ -1,0 +1,44 @@
+/*
+# Base/Grid
+
+thanks to [CSS Grid with Variables](https://codepen.io/jacobberglund/pen/bwxxRy) by @jacobberglund
+
+
+*/
+$columns = 12
+
+:root
+  --columns $columns
+  --gutter 14px
+
+.container
+  display flex
+  flex-direction row
+  flex-wrap wrap
+
+.section
+  padding calc(var(--gutter) * 3) calc(var(--gutter) * 1.5)
+
+  & + .section
+    padding-top 0
+
+.row
+  align-content stretch
+  align-items stretch
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content flex-start
+  width 100%
+  margin-bottom var(--gutter)
+
+.column
+  display block
+  flex-basis calc((100% / var(--columns)) * var(--column-width))
+  order 0
+  padding-left calc(var(--gutter))
+  padding-right calc(var(--gutter))
+
+  for $col in (1..$columns)
+    &.is-{$col}
+      --column-width: $col
