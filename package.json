@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-		"build": "stylus src/index.styl --out dist/index.css --sourcemap -m",
+    "build": "stylus src/index.styl --out dist/index.css --sourcemap -m",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
+    "lint": "./node_modules/stylint/bin/stylint src",
     "release": "standard-version"
   },
   "devDependencies": {
@@ -17,6 +18,8 @@
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.1",
     "standard-version": "^4.4.0",
+    "stylint": "^1.5.9",
+    "stylint-stylish": "^2.0.0",
     "stylus": "^0.54.5",
     "validate-commit-msg": "^2.14.0"
   },
