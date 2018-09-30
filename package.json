@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build-css": "stylus src/index.styl --out dist/index.css --sourcemap -m",
+    "build-css": "stylus src/index.styl --out dist/index.css --sourcemap -m -c",
     "serve-css": "stylus --watch src/index.styl --out dist/index.css --sourcemap -m",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
