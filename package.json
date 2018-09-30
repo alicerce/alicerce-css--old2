@@ -7,9 +7,13 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "stylus src/index.styl --out dist/index.css --sourcemap -m",
+    "build-css": "stylus src/index.styl --out dist/index.css --sourcemap -m",
+    "serve-css": "stylus --watch src/index.styl --out dist/index.css --sourcemap -m",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
+    "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
+    "serve-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/ -w",
+    "server": "lite-server --baseDir='dist'",
     "lint": "./node_modules/stylint/bin/stylint src",
     "release": "standard-version"
   },
@@ -17,6 +21,8 @@
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.1",
+    "lite-server": "^2.4.0",
+    "pug-cli": "^1.0.0-alpha6",
     "standard-version": "^4.4.0",
     "stylint": "^1.5.9",
     "stylint-stylish": "^2.0.0",
