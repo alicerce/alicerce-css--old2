@@ -12,23 +12,29 @@
       .column.is-12 Section
 
   h2 Basic columns
-  - for (var countRows = 1; countRows <= 12; countRows++)
+
+  - for (var columnSize = 1; columnSize <= 12; columnSize++)
     .row
-      .column(class="is-" + countRows) #{countRows}
+      - var nrColumns = 12 / columnSize
+      - for(var quantColumns = 1; quantColumns <= nrColumns; quantColumns++)
+        .column(class="is-" + columnSize)
 
   h2 Nested columns
 
   .row
     .column.is-6
       .row
-        .column.is-4 4
-        .column.is-4 4
-        .column.is-4 4
-    .column.is-6 6
+        .column.is-4
+        .column.is-4
+        .column.is-4
+          .row
+            .column.is-6
+            .column.is-6
+    .column.is-6
   .row
-    .column.is-2 2
-    .column.is-2 2
-    .column.is-2 2
+    .column.is-2
+    .column.is-2
+    .column.is-2
 
 
 
