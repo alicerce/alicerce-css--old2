@@ -1,10 +1,14 @@
-*
-  outline 1px solid red
-
 .doc-grid
 
   .column
-    outline 1px solid blue
+
+    &:before
+      content attr(class)
+      font-size 11px
+      background red
+      width 100%
+      display block
+      text-align center
 
 
 
