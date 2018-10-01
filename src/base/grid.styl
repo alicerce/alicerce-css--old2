@@ -32,12 +32,19 @@ $columns = 12
   width 100%
   margin-bottom var(--gutter)
 
+  &.no-margin
+    margin-bottom 0
+
 .column
   display block
   flex-basis calc((100% / var(--columns)) * var(--column-width))
   order 0
   padding-left calc(var(--gutter))
   padding-right calc(var(--gutter))
+
+  &.no-padding
+    padding-left 0
+    padding-right 0
 
   & > .row
     outline 1px solid green
