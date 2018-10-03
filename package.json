@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build-css": "stylus src/index.styl --out dist/index.css --sourcemap -m -c",
-    "serve-css": "stylus --watch src/index.styl --out dist/index.css --sourcemap -m",
+    "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
+    "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch ",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
     "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
@@ -23,6 +23,7 @@
     "husky": "^1.0.1",
     "lite-server": "^2.4.0",
     "pug-cli": "^1.0.0-alpha6",
+    "rupture": "^0.7.1",
     "standard-version": "^4.4.0",
     "stylint": "^1.5.9",
     "stylint-stylish": "^2.0.0",

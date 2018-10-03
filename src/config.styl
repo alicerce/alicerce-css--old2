@@ -1,0 +1,22 @@
+$columns = 12
+
+$breakpoints = {
+  'mobile_s': 320px
+  'mobile_m': 375px
+  'mobile_l': 425px
+  'tablet': 768px
+  'laptop': 1024px
+  'laptop_l': 1440px
+  'laptop_4k': 2560px
+}
+
+//
+// Rupture config
+//
+rupture.scale           = 0   ($breakpoints.mobile_s)   ($breakpoints.mobile_m)   ($breakpoints.mobile_l)   ($breakpoints.tablet)   ($breakpoints.laptop)   ($breakpoints.laptop_l)   ($breakpoints.laptop_4k)
+//                        └─┬─┘                     └─┬─┘                     └─┬─┘                     └─┬─┘                   └─┬─┘                   └─┬─┘                     └─┬─┘               └─┬─
+// Slice numbers:           1                         2                         3                         4                       5                       6                         7                   8
+rupture.scale-names     = 'default' 'mobile_s' 'mobile_m' 'mobile_l' 'tablet' 'laptop' 'laptop_l' 'laptop_4k'
+rupture.mobile-cutoff   = $breakpoints.tablet
+rupture.desktop-cutoff  = $breakpoints.laptop_l
+rupture.hd-cutoff       = $breakpoints.4k

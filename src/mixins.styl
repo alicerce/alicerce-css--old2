@@ -1,0 +1,5 @@
+generateForBreakpoints()
+  for $breakpointName, $breakpointValue in $breakpoints
+    +above($breakpointName)
+      .{$breakpointName}
+        {block}

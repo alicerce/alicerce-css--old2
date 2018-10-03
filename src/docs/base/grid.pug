@@ -5,11 +5,12 @@
 
   .container
     .row
-      .column.is-12 container
+      .column-is_12 container
+      .column-is_1.mobile_s-column-is_12.mobile_m-column-is_11.mobile_l-column-is_10.tablet-column-is_9.laptop-column-is_8.laptop_l-column-is_7.laptop_4k-column-is_7 lesk
 
   .section
     .row
-      .column.is-12 Section
+      .column-is_12 Section
 
   h2 Basic columns
 
@@ -17,31 +18,31 @@
     .row
       - var nrColumns = 12 / columnSize
       - for(var quantColumns = 1; quantColumns <= nrColumns; quantColumns++)
-        .column(class="is-" + columnSize)
+        div(class="column-is_" + columnSize)
 
   h2 Nested columns
 
   .row
-    .column.is-6
+    .column-is_6
       .row
-        .column.is-4
-        .column.is-4
-        .column.is-4
+        .column-is_4
+        .column-is_4
+        .column-is_4
           .row
-            .column.is-6
-            .column.is-6
-    .column.is-6
+            .column-is_6
+            .column-is_6
+    .column-is_6
   .row
-    .column.is-2
-    .column.is-2
-    .column.is-2
+    .column-is_2
+    .column-is_2
+    .column-is_2
 
 
 
   //- .row
     - for (var columnNr = 1; columnNr <= 12; columnNr++)
-      .column(class="is-1") #{columnNr}
+      .column(class="is_1") #{columnNr}
   //- .row
     - for (var columnNr = 1; columnNr <= 12; columnNr++)
-      .column(class="is-"+columnNr) #{columnNr}
+      .column(class="is_"+columnNr) #{columnNr}
 
