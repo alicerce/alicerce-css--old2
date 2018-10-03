@@ -30,74 +30,78 @@ body
   font-size var(--font-size)
   line-height calc(var(--font-size) * var(--line-height-ratio))
 
-// Font sizes
-[class*="fontSize"]
+// Font Basics
+[class*='font_size']
   --font-size var(--font-size--medium)
   font-size var(--font-size)
   line-height calc(var(--font-size) * var(--line-height-ratio))
 
-[class*="fontWeight"]
+[class*='font_weight']
   --font-weight var(--font-weight--medium)
   font-weight var(--font-weight)
 
-.font
-  &Size
-    &--xxx-large
-      --font-size var(--font-size--xxx-large)
-    &--xx-large
-      --font-size var(--font-size--xx-large)
-    &--x-large
-      --font-size var(--font-size--x-large)
-    &--large
-      --font-size var(--font-size--large)
-    &--medium
-      --font-size var(--font-size--medium)
-    &--small
-      --font-size var(--font-size--small)
-    &--x-small
-      --font-size var(--font-size--x-small)
-    &--xx-small
-      --font-size var(--font-size--xx-small)
-    &--xxx-small
-      --font-size var(--font-size--xxx-small)
+fontDefault()
+  &font
+    &_size
+      &--xxx-large
+        --font-size var(--font-size--xxx-large)
+      &--xx-large
+        --font-size var(--font-size--xx-large)
+      &--x-large
+        --font-size var(--font-size--x-large)
+      &--large
+        --font-size var(--font-size--large)
+      &--medium
+        --font-size var(--font-size--medium)
+      &--small
+        --font-size var(--font-size--small)
+      &--x-small
+        --font-size var(--font-size--x-small)
+      &--xx-small
+        --font-size var(--font-size--xx-small)
+      &--xxx-small
+        --font-size var(--font-size--xxx-small)
 
-  // Font weights
-  &Weight
-    // Modifiers
-    &--bolder
-      font-weight bolder
-    &--lighter
-      font-weight lighter
-    // Absolute
-    &--thin
-      --font-weight var(--font-weight--thin)
-    &--light-extra
-      --font-weight var(--font-weight--light-extra)
-    &--light
-      --font-weight var(--font-weight--light)
-    &--medium
-      --font-weight var(--font-weight--medium)
-    &--regular
-      --font-weight var(--font-weight--regular)
-    &--bold-semi
-      --font-weight var(--font-weight--bold-semi)
-    &--bold
-      --font-weight var(--font-weight--bold)
-    &--bold-extra
-      --font-weight var(--font-weight--bold-extra)
-    &--black
-      --font-weight var(--font-weight--black)
+    // Font weights
+    &_weight
+      // Modifiers
+      &--bolder
+        font-weight bolder
+      &--lighter
+        font-weight lighter
+      // Absolute
+      &--thin
+        --font-weight var(--font-weight--thin)
+      &--light-extra
+        --font-weight var(--font-weight--light-extra)
+      &--light
+        --font-weight var(--font-weight--light)
+      &--medium
+        --font-weight var(--font-weight--medium)
+      &--regular
+        --font-weight var(--font-weight--regular)
+      &--bold-semi
+        --font-weight var(--font-weight--bold-semi)
+      &--bold
+        --font-weight var(--font-weight--bold)
+      &--bold-extra
+        --font-weight var(--font-weight--bold-extra)
+      &--black
+        --font-weight var(--font-weight--black)
 
+    // Font Styles
+    &_style
+      &--normal
+        font-style normal
+      &--italic
+        font-style italic
 
-  // Font Styles
-  &Style
-    &--normal
-      font-style normal
-    &--italic
-      font-style italic
+// Responsive
++generateForBreakpoints()
+  fontDefault()
 
 // Lists
-[class*="list"]
+[class*='list']
   --margin var(--font-size)
   margin-left  calc(var(--margin) * 1)
 
