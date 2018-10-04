@@ -11,11 +11,32 @@ html(lang='', )
     link(rel='stylesheet', href='./index.css', )
     body()
 
-      section.section
-        include base/grid.pug
+      .row
+        .column-is_1
+          ul
+            li
+              a(href='#grid', ) grid
+            li
+              a(href='#typography', ) typography
+            li
+              a(href='#button', ) button
+            //- li
+              a(href='#html-elements', ) html elements
 
-      section.section
-        include base/typography.pug
+        .column-is_11
+          section#grid.section
+            include base/grid.pug
+
+          section#typography.section
+            include base/typography.pug
+
+          section#button.section
+            include elements/button.pug
+
+
+
+          //- section#html-elements.section
+            include base/html-elements.pug
 
 
 
