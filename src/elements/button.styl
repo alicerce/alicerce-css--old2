@@ -1,0 +1,81 @@
+$sizes = 'xxx-large' 'xx-large' 'x-large' 'large' 'medium' 'small' 'x-small' 'xx-small' 'xxx-small'
+
+body .is_red
+  --background-image linear-gradient(-180deg, #F85359 3%, #DC151D 98%)
+  --border-color #DB161E
+  --color #fff
+  --color--hover #fff
+  --background-image-hover linear-gradient(-180deg, #F14D53 3%, #D0161D 98%)
+  --border-color--hover 1px solid #D0121A
+  // --background-image--active linear-gradient(-180deg, #EC4349 3%, #BD0C13 98%)
+  // --border-color--active 1px solid #D01119
+  // --text-color--active #fff
+
+[class*='button']
+  --background-color #fff
+  --background-color--active #eee
+  --background-color--disabled #eee
+  --background-color--hover #eee
+  --background-image none
+  --background-image--active none
+  --background-image--disabled none
+  --background-image--hover none
+  --border-color #bababa
+  --border-color--active #bababa
+  --border-color--disabled #bababa
+  --border-color--hover #bababa
+  --border-radius calc(var(--font-size) / var(--border-radius-divider))
+  --border-radius-divider 5
+  --border-style solid
+  --border-width 1px
+  --color #333
+  --color--active #444
+  --color--disabled #444
+  --color--hover #444
+  --cursor pointer
+  background-color var(--background-color)
+  background-image var(--background-image)
+  border-color var(--border-color)
+  border-radius var(--border-radius)
+  border-style var(--border-style)
+  border-width var(--border-width)
+  color var(--color)
+  font-size var(--font-size)
+  line-height calc(var(--font-size) * var(--line-height-ratio))
+  padding-left var(--font-size)
+  padding-right var(--font-size)
+  text-decoration none
+  cursor var(--cursor)
+
+  a&, span&
+    display inline-block
+
+  &:hover,  &.is-hover
+    --background-color var(--background-color--hover)
+    --background-image var(--background-image--hover)
+    --border-color var(--border-color--hover)
+    --color var(--color--hover)
+
+  &:active, &.is-active, &:focus, &.is-focused
+    --background-color var(--background-color--active)
+    --background-image var(--background-image--active)
+    --border-color var(--border-color--active)
+    --color var(--color--active)
+
+  &:disabled, &.is-disabled
+    --background-color var(--background-color--disabled)
+    --background-image var(--background-image--disabled)
+    --border-color var(--border-color--disabled)
+    --color var(--color--disabled)
+    --cursor default
+
+
+buttonDefault()
+  &button
+    for $size in $sizes
+      &-{$size}
+        --font-size var(--font-size-- + $size)
+
+// Responsive
++generateForBreakpoints()
+  buttonDefault()
