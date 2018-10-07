@@ -51,6 +51,7 @@
         --justify-content flex-end
 
 // Column base
+
 [class*='column-']
   --align-self auto
   --order 1
@@ -65,9 +66,16 @@
     margin-left calc(var(--gutter) * -1)
     width calc(100% + calc(var(--gutter) * 2))
 
+.column
+  display block
+  flex-basis 0
+  flex-grow 1
+  flex-shrink 1
+  width auto
+
 // Size
 alignDefault()
-  &column-aligna
+  &column-align
     &-vertical
       &--top
         --align-self flex-start
