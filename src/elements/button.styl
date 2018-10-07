@@ -1,16 +1,3 @@
-$sizes = 'xxx-large' 'xx-large' 'x-large' 'large' 'medium' 'small' 'x-small' 'xx-small' 'xxx-small'
-
-body .is_red
-  --background-image linear-gradient(-180deg, #F85359 3%, #DC151D 98%)
-  --border-color #DB161E
-  --color #fff
-  --color--hover #fff
-  --background-image-hover linear-gradient(-180deg, #F14D53 3%, #D0161D 98%)
-  --border-color--hover 1px solid #D0121A
-  // --background-image--active linear-gradient(-180deg, #EC4349 3%, #BD0C13 98%)
-  // --border-color--active 1px solid #D01119
-  // --text-color--active #fff
-
 [class*='button']
   --background-color #fff
   --background-color--active #eee
@@ -33,6 +20,7 @@ body .is_red
   --color--disabled #444
   --color--hover #444
   --cursor pointer
+  --line-height calc(var(--vertical-rhythm) * 4)
   background-color var(--background-color)
   background-image var(--background-image)
   border-color var(--border-color)
@@ -40,16 +28,24 @@ body .is_red
   border-style var(--border-style)
   border-width var(--border-width)
   color var(--color)
-  font-size var(--font-size)
-  line-height calc(var(--font-size) * var(--line-height-ratio))
-  padding-left var(--font-size)
-  padding-right var(--font-size)
-  text-decoration none
   cursor var(--cursor)
+  font-size var(--font-size)
+  line-height calc(var(--line-height) - calc( var(--border-width) * 2 ))
+  margin 0
+  margin-left var(--vertical-rhythm)
+  margin-right @margin-left
+  padding-bottom 0
+  padding-left var(--font-size)
+  padding-right @padding-left
+  padding-top 0
+  text-align center
+  text-decoration none
 
+  // Display tags A and SPAN as inline block to respect the paddings / margins / height
   a&, span&
     display inline-block
 
+  // States
   &:hover,  &.is-hover
     --background-color var(--background-color--hover)
     --background-image var(--background-image--hover)
@@ -69,13 +65,14 @@ body .is_red
     --color var(--color--disabled)
     --cursor default
 
-
+// Generate buttons in all sizes
 buttonDefault()
   &button
     for $size in $sizes
       &-{$size}
         --font-size var(--font-size-- + $size)
+        --line-height var(--line-height-- + $size)
 
-// Responsive
+// Generate buttons in all sizes in all breakpoints
 +generateForBreakpoints()
   buttonDefault()
