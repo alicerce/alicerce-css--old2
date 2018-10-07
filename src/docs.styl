@@ -1,15 +1,34 @@
-[class*='columna-']
-    outline: 1px dashed green;
+body
+  --line-grid calc(var(--vertical-rhythm) / 16)
+  background-color: #fff;
+  background-image: linear-gradient(90deg, #efefef var(--line-grid), transparent 0), linear-gradient(#ccc var(--line-grid), transparent 0), linear-gradient(#efefef var(--line-grid), transparent 0);
+  background-size: var(--vertical-rhythm) 100%, 100% calc(var(--vertical-rhythm) * 2), 100% var(--vertical-rhythm)
+  background-position: 0 0, 0 0, 0 0;
 
-.doc-grid
+  *a
+    --demo-color green
+    &:hover
+      outline: .3px dashed var(--demo-color);
+    *
+      --demo-color orange
+      & + *
+        --demo-color red
+      *
+        --demo-color blue
+        *
+          --demo-color black
+
+// [class*='columna-']
+//     outline: 1px dashed green;
+
+.doc-gridXX
 
   [class*='column-']
-    outline: 1px dashed green;
 
     &:before
       content attr(class)
-      font-size 11px
-      background red
+      line-height: 16px
+      background green
       width 100%
       display block
       text-align center

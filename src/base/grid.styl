@@ -1,26 +1,14 @@
-$columns ?= 12
-
-:root
-  --columns $columns
-  --gutter 14px
-
 .container
   display flex
   flex-direction row
   flex-wrap wrap
-
-.section
-  padding calc(var(--gutter) * 3) calc(var(--gutter) * 1.5)
-
-  & + .section
-    padding-top 0
 
 .row
   --align-items stretch
   --flex-direction row
   --flex-wrap wrap
   --justify-content flex-start
-  --margin-bottom var(--gutter)
+  --margin-bottom calc(var(--vertical-rhythm) * 2)
   align-content stretch
   align-items var(--align-items)
   display flex
@@ -62,7 +50,7 @@ $columns ?= 12
       &--right
         --justify-content flex-end
 
-// .column
+// Column base
 [class*='column-']
   --align-self auto
   --order 1
@@ -76,6 +64,7 @@ $columns ?= 12
   & > .row
     margin-left calc(var(--gutter) * -1)
     width calc(100% + calc(var(--gutter) * 2))
+
 // Size
 alignDefault()
   &column-aligna
@@ -87,19 +76,20 @@ alignDefault()
       &--bottom
         --align-self flex-end
 
-// Size
+// Generate columns size for the size of grid
 sizeDefault()
   for $col in (1..$columns)
     &column-is_{$col}
       --column-width $col
+      // flex-basis ($col * 6 * 16px)
 
-// Order
+// Generate columns order for the size of grid
 orderDefault()
   for $col in (1..$columns)
     &is_order_{$col}
       --order $col
 
-// Responsive
+// Generate columns in all sizes in all breakpoints
 +generateForBreakpoints()
   alignDefault()
   sizeDefault()
