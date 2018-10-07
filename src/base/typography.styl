@@ -1,68 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700')
 
-:root
-  --font-family--regular 'Noto Sans', sans-serif
-  --font-family--semibold 'Noto Sans', sans-serif
-  --font-size 16px
-  --font-size--xxx-large calc(var(--font-size) *  3)
-  --font-size--xx-large calc(var(--font-size) *  2)
-  --font-size--x-large calc(var(--font-size) *  1.5)
-  --font-size--large calc(var(--font-size) *  1.125)
-  --font-size--medium calc(var(--font-size) *  1)
-  --font-size--small calc(var(--font-size) *  .8125)
-  --font-size--x-small calc(var(--font-size) *  .625)
-  --font-size--xx-small calc(var(--font-size) *  .5625)
-  --font-size--xxx-small calc(var(--font-size) *  .4375)
-  --font-weight 400
-  --font-weight--black 900
-  --font-weight--bold-extra 800
-  --font-weight--bold 700
-  --font-weight--bold-semi 600
-  --font-weight--medium 500
-  --font-weight--regular 400
-  --font-weight--light 300
-  --font-weight--light-extra 200
-  --font-weight--thin 100
-  --line-height-ratio 1.618
-
 body
   font-family var(--font-family--regular)
   font-size var(--font-size)
-  line-height calc(var(--font-size) * var(--line-height-ratio))
+  line-height calc(var(--vertical-rhythm) * 2)
 
-// Font Basics
+// Font size
 [class*='font_size']
   --font-size var(--font-size--medium)
+  --line-height calc(var(--vertical-rhythm) * 2)
   font-size var(--font-size)
-  line-height calc(var(--font-size) * var(--line-height-ratio))
+  line-height var(--line-height)
 
+// Font weight
 [class*='font_weight']
-  --font-weight var(--font-weight--medium)
+  --font-weight calc(var(--vertical-rhythm) * 2)
   font-weight var(--font-weight)
 
+// Generate font size for all sizes
 fontDefault()
   &font
+    // Generate font size for all sizes
     &_size
       &--xxx-large
         --font-size var(--font-size--xxx-large)
+        --line-height calc(var(--vertical-rhythm) * 4)
       &--xx-large
         --font-size var(--font-size--xx-large)
+        --line-height calc(var(--vertical-rhythm) * 4)
       &--x-large
         --font-size var(--font-size--x-large)
+        --line-height calc(var(--vertical-rhythm) * 4)
       &--large
         --font-size var(--font-size--large)
+        --line-height calc(var(--vertical-rhythm) * 4)
       &--medium
         --font-size var(--font-size--medium)
+        --line-height calc(var(--vertical-rhythm) * 4)
       &--small
         --font-size var(--font-size--small)
+        --line-height calc(var(--vertical-rhythm) * 2)
       &--x-small
         --font-size var(--font-size--x-small)
+        --line-height calc(var(--vertical-rhythm) * 2)
       &--xx-small
         --font-size var(--font-size--xx-small)
+        --line-height calc(var(--vertical-rhythm) * 2)
       &--xxx-small
         --font-size var(--font-size--xxx-small)
+        --line-height calc(var(--vertical-rhythm) * 2)
 
-    // Font weights
+    // Generate font weights for all possibilities
     &_weight
       // Modifiers
       &--bolder
@@ -96,32 +84,6 @@ fontDefault()
       &--italic
         font-style italic
 
-// Responsive
+// Generate fonts in all sizes, weight  and styles in all breakpoints
 +generateForBreakpoints()
   fontDefault()
-
-// Lists
-[class*='list']
-  --margin var(--font-size)
-  margin-left  calc(var(--margin) * 1)
-
-.list
-
-  &Ordered
-    counter-reset section
-    list-style-type none
-
-    li:before
-      content counters(section, '-') '.'
-      counter-increment section
-
-    // li
-
-  &Unordered
-    list-style none
-
-    li:before
-      background-color rgba(53,64,82,0.50)
-      content ''
-      circle(6px)
-      margin-right 14px
