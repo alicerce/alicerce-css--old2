@@ -1,0 +1,25 @@
+// Lists
+[class*='list']
+  --margin var(--font-size)
+  margin-left  calc(var(--margin) * 1)
+
+.list
+
+  &Ordered
+    counter-reset section
+    list-style-type none
+
+    li:before
+      content counters(section, '-') '.'
+      counter-increment section
+
+    // li
+
+  &Unordered
+    list-style none
+
+    li:before
+      background-color rgba(53,64,82,0.50)
+      content ''
+      circle(6px)
+      margin-right 14px
