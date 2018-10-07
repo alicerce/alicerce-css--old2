@@ -21,14 +21,47 @@ body
 // [class*='columna-']
 //     outline: 1px dashed green;
 
-.doc-gridXX
+show-column()
+  &:before
+    background-color lightgray
+    color transparent
+    content attr(class)
+    display block
+    height 100%
+    left 8px
+    opacity .5
+    position absolute
+    text-align center
+    top 0
+    width calc(100% - 16px)
 
-  [class*='column-']
+.demo
+  &-row
+    &_space
+      [class*='row']
+        outline 1px solid red
+      [class*='column']
+        position relative
+        show-column()
+    &_align
+      [class*='row']
+        outline 1px solid red
+      [class*='column']
+        position relative
+        show-column()
 
-    &:before
-      content attr(class)
-      line-height: 16px
-      background green
-      width 100%
-      display block
-      text-align center
+
+  &-columns
+    &_size
+      [class*='column']
+        position relative
+        show-column()
+    &_gutter
+      [class*='column']
+        &:before
+          content attr(class)
+          display block
+          outline 1px solid red
+          height var(--line-height)
+          text-align center
+

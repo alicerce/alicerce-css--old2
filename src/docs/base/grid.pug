@@ -17,54 +17,252 @@
 
 .row
   .column-is_12
-    h1.font_size--xxx-large #{$locale.grid.title}
+    h1.font_size--xxx-large Grid
 
 .row
   .column-is_12
-    h2.font_size--xx-large Grid examples
-
-.row
-  .column-is_12 container
-  .column-is_1.mobile_s-column-is_12.mobile_m-column-is_11.mobile_l-column-is_10.tablet-column-is_9.laptop-column-is_8.laptop_l-column-is_7.laptop_4k-column-is_7 lesk
-
-.row
-  .column-is_12 Section
+    p The grid is based on 12 columns system using Flexbox.
+    p add a <code>.row</code> container and as many <code>.column-is_[size]</code> elements as you want
 
 .row
   .column-is_12
-    h2.font_size--xx-large Basic columns
+    h2.font_size--xx-large Rows
 
-- for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
-  .row
-    - var $nrColumns = 12 / $columnSize
-    - for(var $quantColumns = 1; $quantColumns <= $nrColumns; $quantColumns++)
-      div(class="column-is_" + $columnSize) #{$columnSize} column#{$columnSize > 1 ? 's': ''}
+    p the .row always will take 100% of the width
+
+  .column-is_12.demo-row_space
+    .row
+      .column-is_12 row 1
+
+  .column-is_12
+    h3.font_size--x-large Row nesting
+
+    p nesting a new row inside a column will remove the left and right padding
+
+  .column-is_12.demo-row_space
+    .row
+      .column-is_4 Column 4
+      .column-is_4 Column 4
+      .column-is_4 Column 4
+    .row
+      .column-is_4 Column 4
+      .column-is_4
+        .row
+          .column-is_6 nested row
+          .column-is_6 nested row
+      .column-is_4 Column 4
+
+  .column-is_12
+    h3.font_size--x-large Row spacing
+
+  .column-is_12
+    p The space bethween rows is based on the vertical rhythm of 8px
+
+  .column-is_12.demo-row_space
+    .row
+      .column-is_4 column 4
+      .column-is_4 column 4
+      .column-is_4 column 4
+    .row
+      .column-is_4 column 4
+      .column-is_4 column 4
+      .column-is_4 column 4z
+
+  .column-is_12
+    p you can remove the space between rows adding the modifier .no-margin
+
+  .column-is_12.demo-row_space
+    .row.no-margin
+      .column-is_4 column 4
+      .column-is_4 column 4
+      .column-is_4 column 4
+    .row
+      .column-is_4 column 4
+      .column-is_4 column 4
+      .column-is_4 column 4
+
+  .column-is_12
+    h3.font_size--x-large Row orientation
+
+    p The default behavior of the columns are horizontal, brealking the line if they dont fit
+    p you can change this adding the classes .is-row or .is-column
+    p  you can prevent a horizontal worw to break adding the class .no-break
+
+  .column-is_12.demo-row_space
+    .row
+      .column-is_5 5
+      .column-is_5 5
+      .column-is_5 5
+
+    .row.is-column
+      .column-is_5 5
+      .column-is_5 5
+      .column-is_5 5
+
+    .row.no-break
+      .column-is_5 5
+      .column-is_5 5
+      .column-is_5 5
+
+  .column-is_12
+    h3.font_size--x-large Row alignement
+
+
+  .column-is_12.demo-row_align
+
+    h4.font_size--large vertical
+
+    p Add the classes .align-vertical--top .align-vertical--center .align-vertical--bottom
+
+    .row.align-vertical--top
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+    .row.align-vertical--center
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+    .row.align-vertical--bottom
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+
+    h4.font_size--large horizontal
+
+    p Add the classes .align-horizontal--top .align-horizontal--center .align-horizontal--bottom
+
+    .row.align-horizontal--left
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+    .row.align-horizontal--center
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+    .row.align-horizontal--right
+      .column-is_2
+        | a <br>
+        | b <br>
+        | c <br>
+      .column-is_2 d
+      .column-is_2 e
+
+.row
+  .column-is_12
+    h2.font_size--xx-large Columns
+
+    p You can add how many columns you want and the space will divided equally
+    p to define the size of the  columns add the size defined by the modifier -is-[SIZE]
+
+.row
+  .column-is_12.demo-columns_size
+    .row
+      - for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
+        .column=$columnSize
+    .row
+      - for (var $columnSize = 1; $columnSize <= 16; $columnSize++)
+        .column=$columnSize
+.row
+  .column-is_12.demo-columns_size
+    - for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
+      .row
+        - var $nrColumns = 12 / $columnSize
+        - for(var $quantColumns = 1; $quantColumns <= $nrColumns; $quantColumns++)
+          div(class="column-is_" + $columnSize) #{$columnSize} column#{$columnSize > 1 ? 's': ''}
 
 .row
   .column-is_12
     h2.font_size--xx-large Nested columns
+    p you can nest columns, without padding if you add a .row
 
 .row
-  .column-is_6
+  .column-is_12.demo-columns_size
     .row
-      .column-is_4
-      .column-is_4
-      .column-is_4
+      .column-is_6
         .row
-          .column-is_6
-          .column-is_6
-  .column-is_6
+          .column-is_4 4 nested
+          .column-is_4 4 nested
+          .column-is_4 4 nested
+      .column-is_6 6
+    .row
+      .column-is_2 2
+      .column-is_2 2
+      .column-is_2 2
+      .column-is_2 2
+      .column-is_2 2
+      .column-is_2 2
+
 .row
-  .column-is_2
-  .column-is_2
-  .column-is_2
+  .column-is_12
+    h2.font_size--xx-large Ordering columns
+    p The columns will follow the order in HTML
+    p all columns have order 1
+
+.row
+  .column-is_12.demo-columns_size
+    .row
+      .column-is_3 column 1 on HTML
+      .column-is_3 column 2 on HTML
+      .column-is_3 column 3 on HTML
+      .column-is_3 column 4 on HTML
+
+.row
+  .column-is_12
+    h2.font_size--xx-large colum align
+    p you can change the column align with the classes column-align-vertical-[POSITION]
+
+.column-is_12.demo-columns_size
+    .row
+      .column-is_3.column-align-vertical--top TOP
+      .column-is_3
+        | 1 <br>
+        | 2 <br>
+        | 3 <br>
+    .row
+      .column-is_3.column-align-vertical--center CENTER
+      .column-is_3
+        | 1 <br>
+        | 2 <br>
+        | 3 <br>
+    .row
+      .column-is_3.column-align-vertical--bottom BOTTOM
+      .column-is_3
+        | 1 <br>
+        | 2 <br>
+        | 3 <br>
 
 
+.row
+  .column-is_12
+    p you can change the order using the helper is_order_[POSITION]
+
+.row
+  .column-is_12.demo-columns_size
+    .row
+      .column-is_3.is_order_4 column 1 on HTML 4 on CSS
+      .column-is_3.is_order_3 column 2 on HTML 3 on CSS
+      .column-is_3.is_order_2 column 3 on HTML 2 on CSS
+      .column-is_3.is_order_1 column 4 on HTML 1 on CSS
 
 //- .row
   - for (var columnNr = 1; columnNr <= 12; columnNr++)
     .column(class="is_1") #{columnNr}
 //- .row
-  - for (var columnNr = 1; columnNr <= 12; columnNr++)
+  - for ( var columnNr = 1; columnNr <= 12; columnNr++)
     .column(class="is_"+columnNr) #{columnNr}
 
