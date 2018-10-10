@@ -1,38 +1,39 @@
 {
   "name": "alicerce",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "UI component library css",
   "main": "index.js",
   "author": "Luiz tanure <letanure@gmail.com>",
   "license": "MIT",
   "private": false,
+  "repository": "github:Alicerce/alicerce-css",
   "scripts": {
     "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
     "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch ",
-    "commit": "git-cz",
-    "commitmsg": "validate-commit-msg",
     "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
     "serve-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/ -w",
     "server": "lite-server --baseDir='dist'",
-    "lint": "./node_modules/stylint/bin/stylint src",
-    "release": "standard-version"
+    "lint": "./node_modules/stylint/bin/stylint src"
   },
   "devDependencies": {
-    "commitizen": "^2.10.1",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.0.1",
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.1.2",
+    "husky": "^1.1.1",
     "lite-server": "^2.4.0",
     "pug-cli": "^1.0.0-alpha6",
     "rupture": "^0.7.1",
-    "standard-version": "^4.4.0",
     "stylint": "^1.5.9",
     "stylint-stylish": "^2.0.0",
-    "stylus": "^0.54.5",
-    "validate-commit-msg": "^2.14.0"
+    "stylus": "^0.54.5"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
