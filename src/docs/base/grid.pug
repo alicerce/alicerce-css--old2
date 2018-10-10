@@ -220,6 +220,17 @@
       .column-is_3 column 2 on HTML
       .column-is_3 column 3 on HTML
       .column-is_3 column 4 on HTML
+.row
+  .column-is_12
+    p you can change the order using the helper is_order_[POSITION]
+
+.row
+  .column-is_12.demo-columns_size
+    .row
+      .column-is_3.is_order_4 column 1 on HTML 4 on CSS
+      .column-is_3.is_order_3 column 2 on HTML 3 on CSS
+      .column-is_3.is_order_2 column 3 on HTML 2 on CSS
+      .column-is_3.is_order_1 column 4 on HTML 1 on CSS
 
 .row
   .column-is_12
@@ -247,17 +258,7 @@
         | 3 <br>
 
 
-.row
-  .column-is_12
-    p you can change the order using the helper is_order_[POSITION]
 
-.row
-  .column-is_12.demo-columns_size
-    .row
-      .column-is_3.is_order_4 column 1 on HTML 4 on CSS
-      .column-is_3.is_order_3 column 2 on HTML 3 on CSS
-      .column-is_3.is_order_2 column 3 on HTML 2 on CSS
-      .column-is_3.is_order_1 column 4 on HTML 1 on CSS
 
 //- .row
   - for (var columnNr = 1; columnNr <= 12; columnNr++)
