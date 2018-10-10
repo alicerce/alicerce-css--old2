@@ -8,6 +8,7 @@
   "private": false,
   "repository": "github:Alicerce/alicerce-css",
   "scripts": {
+    "build-all": "yarn build-css && yarn build-docs",
     "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
     "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
     "lint": "./node_modules/stylint/bin/stylint src",

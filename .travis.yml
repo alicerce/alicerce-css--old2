@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+  - "node"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+before_install:
+  - sudo apt-get install -qq xvfb
+
+after_success:
+  - yarn run release
+
+script:
+  - yarn build-all
+
+branches:
+  only:
+    - master
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - npx semantic-release
