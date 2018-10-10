@@ -9,11 +9,12 @@
   "repository": "github:Alicerce/alicerce-css",
   "scripts": {
     "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
-    "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch ",
     "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
+    "lint": "./node_modules/stylint/bin/stylint src",
+    "release": "semantic-release",
+    "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch ",
     "serve-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/ -w",
-    "server": "lite-server --baseDir='dist'",
-    "lint": "./node_modules/stylint/bin/stylint src"
+    "server": "lite-server --baseDir='dist'"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
@@ -22,6 +23,7 @@
     "lite-server": "^2.4.0",
     "pug-cli": "^1.0.0-alpha6",
     "rupture": "^0.7.1",
+    "semantic-release": "^15.9.17",
     "stylint": "^1.5.9",
     "stylint-stylish": "^2.0.0",
     "stylus": "^0.54.5"
