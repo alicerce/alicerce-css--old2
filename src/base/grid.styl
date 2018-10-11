@@ -2,6 +2,18 @@
   display flex
   flex-direction row
   flex-wrap wrap
+  margin 0 auto
+  width 100%
+
+  +above('tablet')
+    width $breakpoints['tablet']
+
+  +above('laptop')
+    width $breakpoints['laptop']
+
+  +above('laptop_l')
+    width $breakpoints['laptop_l']
+
 
 .row
   --align-items stretch
