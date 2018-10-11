@@ -45,9 +45,18 @@ noPadding()
       padding-bottom 0
       padding-top 0
 
+// Hide text elements
+visuallyHidden()
+  /body &visually-hidden
+    position absolute !important
+    height 1px
+    width 1px
+    overflow hidden
+    clip rect(1px, 1px, 1px, 1px)
 
 // Generate helpers in all sizes in all breakpoints
 +generateForBreakpoints()
   isDisplay()
   noPadding()
   noMargin()
+  visuallyHidden()
