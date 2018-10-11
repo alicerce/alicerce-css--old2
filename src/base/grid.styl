@@ -74,7 +74,7 @@
   flex-shrink 1
   width auto
 
-// Size
+// Align
 alignDefault()
   &column-align
     &-vertical
@@ -92,6 +92,13 @@ sizeDefault()
       --column-width $col
       // flex-basis ($col * 6 * 16px)
 
+
+// Generate columns offset for the size of grid
+offsetDefault()
+  for $col in (1..$columns)
+    &offset-is_{$col}
+      --offset $col
+
 // Generate columns order for the size of grid
 orderDefault()
   for $col in (1..$columns)
@@ -102,4 +109,5 @@ orderDefault()
 +generateForBreakpoints()
   alignDefault()
   sizeDefault()
+  offsetDefault()
   orderDefault()
