@@ -1,5 +1,12 @@
 // Util & helper classes with body selectro for higher CSS specificity
 
+// Display
+isDisplay()
+  /body &is_hidden
+    display none
+  /body &is_block
+    display block
+
 // Margin
 noMargin()
   /body &no_margin
@@ -41,5 +48,6 @@ noPadding()
 
 // Generate helpers in all sizes in all breakpoints
 +generateForBreakpoints()
+  isDisplay()
   noPadding()
   noMargin()
