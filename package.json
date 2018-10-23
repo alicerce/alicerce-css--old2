@@ -10,12 +10,12 @@
   "scripts": {
     "build-all": "yarn build-css && yarn build-docs",
     "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
-    "build-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/",
+    "build-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/",
     "lint": "./node_modules/stylint/bin/stylint src",
     "release": "semantic-release",
-    "serve-all": "yarn serve-css & yarn serve-docs",
+    "serve-all": "yarn serve-css & yarn serve-docs & yarn server",
     "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch",
-    "serve-docs": "./node_modules/.bin/pug src/docs/ -o ./dist/ -w",
+    "serve-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/ -w",
     "server": "lite-server --baseDir='dist'"
   },
   "devDependencies": {
