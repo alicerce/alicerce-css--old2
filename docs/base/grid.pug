@@ -1,269 +1,297 @@
 -
-  var $locale = {
+  const $locale = {
     grid: {
       title: 'Grid',
-      sections: [
+      desc: [
+        'The grid is based on 12 columns system using Flexbox.',
+        'add a <code>.row</code> container and as many <code>.column-is_[size]</code> elements as you want',
+      ],
+      demo: '',
+      subSections: [
         {
-          title: 'Grid examples3'
+          title: 'Row width',
+          desc: [
+            'p the <code>.row</code> always will take 100% of the availables width.'
+          ],
+          demo: 'row-default'
         },
-      ]
-    }
+        {
+          title: 'Row spacing',
+          desc: [
+            'The space bethween rows is based on the vertical rhythm of 8px',
+          ],
+          demo: 'row-spacing',
+          subSections: [
+            {
+              title: '',
+              desc: [
+                'you can remove the space between rows adding the modifier <code>.no-margin</code>',
+              ],
+              demo: 'row-spacing-no_margin',
+            },
+          ],
+        },
+        {
+          title: 'Row nesting',
+          desc: [
+            'nesting a new row inside a column will remove the left and right padding',
+          ],
+          demo: 'row-nesting',
+        },
+        {
+          title: 'Row Orientation',
+          desc: [
+            'The default behavior of the columns are horizontal, breaking the line if they dont fit the width',
+          ],
+          demo: 'row-orientation',
+          subSections: [
+            {
+              title: '',
+              desc: [
+                'you can change the orientarion adding the class <code>.is-column</code>',
+              ],
+              demo: 'row-is_column',
+            },
+            {
+              title: '',
+              desc: [
+                'you can change back to the default adding the class <code>.is-row</code>',
+              ],
+              demo: 'row-is_row',
+            },
+            {
+              title: '',
+              desc: [
+                'you can prevent the columns to break the line adding the class <code>.no-break</code>',
+              ],
+              demo: 'row-no_break',
+            },
+          ],
+        },
+        {
+          title: 'Row alignement',
+          subSections: [
+            {
+              title: 'Vertical',
+              desc: [
+                '',
+              ],
+              demo: '',
+              subSections: [
+                {
+                  title: '',
+                  desc: [
+                    'by default the columns stretch to fill the row',
+                  ],
+                  demo: 'row-alignement-vertical',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-vertical--top</code> to remove the strech and align to top',
+                  ],
+                  demo: 'row-alignement_vertical-top',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-vertical--center</code> to remove the strech and align to center',
+                  ],
+                  demo: 'row-alignement_vertical-center',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-vertical--bottom</code> to remove the strech and align to bottom',
+                  ],
+                  demo: 'row-alignement_vertical-bottom',
+                },
+              ],
+            },
+            {
+              title: 'Horizontal',
+              desc: [
+                '',
+              ],
+              subSections: [
+                {
+                  title: '',
+                  desc: [
+                    'by default the columns are align to left of the row',
+                  ],
+                  demo: 'row-alignement_horizontal-default',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-horizontal--left</code> to align to left',
+                  ],
+                  demo: 'row-alignement_horizontal-left',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-horizontal--center</code> to align to center',
+                  ],
+                  demo: 'row-alignement_horizontal-center',
+                },
+                {
+                  title: '',
+                  desc: [
+                    'Add the class <code>.align-horizontal--right</code> to align to right',
+                  ],
+                  demo: 'row-alignement_horizontal-right',
+                },
+              ],
+            },
+          ],
+        }
+      ],
+    },
+
+    column: {
+      title: 'Columns',
+      desc: [
+        'the columns should be nested inside a <code>.row</code>',
+      ],
+      demo: 'column-default',
+      subSections: [
+        {
+          title: 'Size',
+          desc: [
+            'to define the size of the column add the size defined by the modifier -is_[SIZE] from 1 to 12',
+          ],
+          demo: 'column-size',
+          subSections: [
+            {
+              title: '',
+              desc: [
+                'example all columns sizes',
+              ],
+              demo: 'column-size-all',
+            },
+            {
+              title: 'More than 12 columns',
+              desc: [
+                'you can add more columns thank 12 and the space will be equally divided if you use the class without the size modifier, just the class <code>.column</code>',
+              ],
+              demo: 'column-size-adaptative',
+            },
+            {
+              title: '',
+              desc: [
+                'if one of the columns have the size modifier, the width will be respected and the remaining space will be divided',
+              ],
+              demo: 'column-size-fixed-adaptative',
+            },
+          ],
+        },
+        {
+          title: 'Nested columns',
+          desc: [
+            'you can nest columns, without padding if you add a .row',
+          ],
+          demo: 'column-nested',
+        },
+        {
+          title: 'Ordering columns',
+          desc: [
+            'The columns will follow the order in HTML (all columns have order 1 in flex)',
+          ],
+          demo: 'column-order-default',
+          subSections: [
+            {
+              title: '',
+              desc: [
+                'you can change the order using the helper <code>.is_order_[POSITION]</code>',
+              ],
+              demo: 'column-order-change',
+            },
+          ],
+        },
+        {
+          title: 'Align column',
+          desc: [
+            'you can change the column align with the classes column-align-vertical-[POSITION]',
+            'by default the columns stretch to fill the height of the column',
+          ],
+          demo: 'column-align_vertical-default',
+          subSections: [
+            {
+              title: '',
+              desc: [
+                'Add the class <code>.column-align-vertical--stretch</code> to reset to the default stretch',
+              ],
+              demo: 'column-align_vertical-stretch',
+            },
+            {
+              title: '',
+              desc: [
+                'Add the class <code>.column-align-vertical--top</code> to align to top',
+              ],
+              demo: 'column-align_vertical-top',
+            },
+            {
+              title: '',
+              desc: [
+                'Add the class <code>.column-align-vertical--center</code> to align to center',
+              ],
+              demo: 'column-align_vertical-center',
+            },
+            {
+              title: '',
+              desc: [
+                'Add the class <code>.column-align-vertical--bottom</code> to align to bottom',
+              ],
+              demo: 'column-align_vertical-bottom',
+            },
+          ],
+        },
+        //- offset
+      ],
+    },
+
   }
 
-//- each $section in $locale.grid.sections.length ? $locale.grid.sections : []
-  .row
-    .column-is_12
-      h1.font_size--xxx-large=$section.title
+include grid/index.pug
 
-.row
-  .column-is_12
-    h1.font_size--xxx-large Grid
+mixin generateDoc($sectionObj, $headingHeight = 0)
+  -
+    const $headingsSizes = {
+      1: 'font_size--xxx-large',
+      2: 'font_size--xx-large',
+      3: 'font_size--x-large',
+      4: 'font_size--large',
+    }
+    if ($headingHeight < 4) {
+      $headingHeight++
+    }
+    var $titleClass = $headingsSizes[$headingHeight]
 
-.row
-  .column-is_12
-    p The grid is based on 12 columns system using Flexbox.
-    p add a <code>.row</code> container and as many <code>.column-is_[size]</code> elements as you want
-
-.row
-  .column-is_12
-    h2.font_size--xx-large Rows
-
-    p the .row always will take 100% of the width
-
-  .column-is_12.demo-row_space
+  if($sectionObj.title !== undefined && $sectionObj.title !== '')
     .row
-      .column-is_12 row 1
+      .column-is_12
+        h2(class=$titleClass)=$sectionObj.title
 
-  .column-is_12
-    h3.font_size--x-large Row nesting
 
-    p nesting a new row inside a column will remove the left and right padding
-
-  .column-is_12.demo-row_space
+  if($sectionObj.desc !== undefined && $sectionObj.desc !== '')
     .row
-      .column-is_4 Column 4
-      .column-is_4 Column 4
-      .column-is_4 Column 4
+      .column-is_12
+        each $desc in $sectionObj.desc
+          if($desc !== '')
+            p!=$desc
+
+
+  if($sectionObj.demo !== undefined && $sectionObj.demo !== '')
     .row
-      .column-is_4 Column 4
-      .column-is_4
-        .row
-          .column-is_6 nested row
-          .column-is_6 nested row
-      .column-is_4 Column 4
+      .column-is_12
+        .demo-grid
+          +includeExample($sectionObj.demo)
 
-  .column-is_12
-    h3.font_size--x-large Row spacing
+  if($sectionObj.subSections !== undefined)
+    each $subSections in $sectionObj.subSections
+      +generateDoc($subSections, $headingHeight)
 
-  .column-is_12
-    p The space bethween rows is based on the vertical rhythm of 8px
-
-  .column-is_12.demo-row_space
-    .row
-      .column-is_4 column 4
-      .column-is_4 column 4
-      .column-is_4 column 4
-    .row
-      .column-is_4 column 4
-      .column-is_4 column 4
-      .column-is_4 column 4z
-
-  .column-is_12
-    p you can remove the space between rows adding the modifier .no-margin
-
-  .column-is_12.demo-row_space
-    .row.no-margin
-      .column-is_4 column 4
-      .column-is_4 column 4
-      .column-is_4 column 4
-    .row
-      .column-is_4 column 4
-      .column-is_4 column 4
-      .column-is_4 column 4
-
-  .column-is_12
-    h3.font_size--x-large Row orientation
-
-    p The default behavior of the columns are horizontal, brealking the line if they dont fit
-    p you can change this adding the classes .is-row or .is-column
-    p  you can prevent a horizontal worw to break adding the class .no-break
-
-  .column-is_12.demo-row_space
-    .row
-      .column-is_5 5
-      .column-is_5 5
-      .column-is_5 5
-
-    .row.is-column
-      .column-is_5 5
-      .column-is_5 5
-      .column-is_5 5
-
-    .row.no-break
-      .column-is_5 5
-      .column-is_5 5
-      .column-is_5 5
-
-  .column-is_12
-    h3.font_size--x-large Row alignement
-
-
-  .column-is_12.demo-row_align
-
-    h4.font_size--large vertical
-
-    p Add the classes .align-vertical--top .align-vertical--center .align-vertical--bottom
-
-    .row.align-vertical--top
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-    .row.align-vertical--center
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-    .row.align-vertical--bottom
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-
-    h4.font_size--large horizontal
-
-    p Add the classes .align-horizontal--top .align-horizontal--center .align-horizontal--bottom
-
-    .row.align-horizontal--left
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-    .row.align-horizontal--center
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-    .row.align-horizontal--right
-      .column-is_2
-        | a <br>
-        | b <br>
-        | c <br>
-      .column-is_2 d
-      .column-is_2 e
-
-.row
-  .column-is_12
-    h2.font_size--xx-large Columns
-
-    p You can add how many columns you want and the space will divided equally
-    p to define the size of the  columns add the size defined by the modifier -is-[SIZE]
-
-.row
-  .column-is_12.demo-columns_size
-    .row
-      - for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
-        .column=$columnSize
-    .row
-      - for (var $columnSize = 1; $columnSize <= 16; $columnSize++)
-        .column=$columnSize
-.row
-  .column-is_12.demo-columns_size
-    - for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
-      .row
-        - var $nrColumns = 12 / $columnSize
-        - for(var $quantColumns = 1; $quantColumns <= $nrColumns; $quantColumns++)
-          div(class="column-is_" + $columnSize) #{$columnSize} column#{$columnSize > 1 ? 's': ''}
-
-.row
-  .column-is_12
-    h2.font_size--xx-large Nested columns
-    p you can nest columns, without padding if you add a .row
-
-.row
-  .column-is_12.demo-columns_size
-    .row
-      .column-is_6
-        .row
-          .column-is_4 4 nested
-          .column-is_4 4 nested
-          .column-is_4 4 nested
-      .column-is_6 6
-    .row
-      .column-is_2 2
-      .column-is_2 2
-      .column-is_2 2
-      .column-is_2 2
-      .column-is_2 2
-      .column-is_2 2
-
-.row
-  .column-is_12
-    h2.font_size--xx-large Ordering columns
-    p The columns will follow the order in HTML
-    p all columns have order 1
-
-.row
-  .column-is_12.demo-columns_size
-    .row
-      .column-is_3 column 1 on HTML
-      .column-is_3 column 2 on HTML
-      .column-is_3 column 3 on HTML
-      .column-is_3 column 4 on HTML
-.row
-  .column-is_12
-    p you can change the order using the helper is_order_[POSITION]
-
-.row
-  .column-is_12.demo-columns_size
-    .row
-      .column-is_3.is_order_4 column 1 on HTML 4 on CSS
-      .column-is_3.is_order_3 column 2 on HTML 3 on CSS
-      .column-is_3.is_order_2 column 3 on HTML 2 on CSS
-      .column-is_3.is_order_1 column 4 on HTML 1 on CSS
-
-.row
-  .column-is_12
-    h2.font_size--xx-large colum align
-    p you can change the column align with the classes column-align-vertical-[POSITION]
-
-.column-is_12.demo-columns_size
-    .row
-      .column-is_3.column-align-vertical--top TOP
-      .column-is_3
-        | 1 <br>
-        | 2 <br>
-        | 3 <br>
-    .row
-      .column-is_3.column-align-vertical--center CENTER
-      .column-is_3
-        | 1 <br>
-        | 2 <br>
-        | 3 <br>
-    .row
-      .column-is_3.column-align-vertical--bottom BOTTOM
-      .column-is_3
-        | 1 <br>
-        | 2 <br>
-        | 3 <br>
-
-
-
-
-//- .row
-  - for (var columnNr = 1; columnNr <= 12; columnNr++)
-    .column(class="is_1") #{columnNr}
-//- .row
-  - for ( var columnNr = 1; columnNr <= 12; columnNr++)
-    .column(class="is_"+columnNr) #{columnNr}
-
+//- Generate
++generateDoc($locale.grid)
++generateDoc($locale.column)
