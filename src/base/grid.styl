@@ -14,7 +14,6 @@
   +above('laptop_l')
     width $breakpoints['laptop_l']
 
-
 .row
   --align-items stretch
   --flex-direction row
@@ -28,7 +27,8 @@
   flex-wrap var(--flex-wrap)
   justify-content var(--justify-content)
   margin-bottom var(--margin-bottom)
-  width: 100%
+  width 100%
+  z-index 1
 
   &.is
     &-row
@@ -63,17 +63,19 @@
         --justify-content flex-end
 
 // Column base
-
 [class*='column-']
   --align-self auto
   --order 1
   --padding var(--gutter)
+  --offset 0
   align-self var(--align-self)
   flex-basis calc((100% / var(--columns)) * var(--column-width))
+  margin-left calc((100% / var(--columns)) * var(--offset))
+  flex-shrink 0
+  width @flex-basis
   order var(--order)
   padding-left var(--padding)
   padding-right var(--padding)
-  max-width @flex-basis
 
   & > .row
     margin-left calc(var(--gutter) * -1)
@@ -85,11 +87,20 @@
   flex-grow 1
   flex-shrink 1
   width auto
+  order 1
+
+// Offset
+offsetDefault()
+  for $col in (1..$columns)
+    &offset-is_{$col}
+      --offset $col
 
 // Align
 alignDefault()
   &column-align
     &-vertical
+      &--stretch
+        --align-self auto
       &--top
         --align-self flex-start
       &--center
@@ -97,21 +108,14 @@ alignDefault()
       &--bottom
         --align-self flex-end
 
-// Generate columns size for the size of grid
+// Size
 sizeDefault()
   for $col in (1..$columns)
     &column-is_{$col}
       --column-width $col
       // flex-basis ($col * 6 * 16px)
 
-
-// Generate columns offset for the size of grid
-offsetDefault()
-  for $col in (1..$columns)
-    &offset-is_{$col}
-      --offset $col
-
-// Generate columns order for the size of grid
+// Order
 orderDefault()
   for $col in (1..$columns)
     &is_order_{$col}
