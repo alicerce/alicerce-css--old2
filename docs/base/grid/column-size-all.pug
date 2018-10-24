@@ -1,0 +1,5 @@
+- for (var $columnSize = 1; $columnSize <= 12; $columnSize++)
+  .row
+    - var $nrColumns = 12 / $columnSize
+    - for(var $quantColumns = 1; $quantColumns <= $nrColumns; $quantColumns++)
+      div(class="column-is_" + $columnSize)  .column-is_#{$columnSize}
