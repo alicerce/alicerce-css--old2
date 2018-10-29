@@ -15,13 +15,16 @@
     "release": "semantic-release",
     "serve-all": "yarn serve-css & yarn serve-docs & yarn server",
     "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch",
-    "serve-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/ -w",
+    "serve-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/ -w -P",
     "server": "lite-server --baseDir='dist'"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
     "husky": "^1.1.1",
+    "jstransformer-highlight": "^2.0.0",
+    "jstransformer-html-beautify": "^0.0.1",
+    "jstransformer-pug": "^0.3.0",
     "lite-server": "^2.4.0",
     "pug-cli": "^1.0.0-alpha6",
     "rupture": "^0.7.1",

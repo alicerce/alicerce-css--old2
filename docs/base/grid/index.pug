@@ -1,6 +1,9 @@
 mixin includeExample(exampleName)
   if exampleName === 'row-default'
     include row-default.pug
+    pre
+      code.code.html
+        include:highlight:pug:html-beautify(lang: 'html') row-default.pug
   if exampleName === 'row-spacing'
     include row-spacing.pug
   if exampleName === 'row-spacing-no_margin'

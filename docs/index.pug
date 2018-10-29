@@ -9,41 +9,46 @@ html(lang='', )
     // Disable tap highlight on IE
     meta(name='msapplication-tap-highlight', content='no', )
     link(rel='stylesheet', href='./index.css', )
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/plaintext.min.js')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css")
+    script.
+      hljs.initHighlightingOnLoad();
     body()
 
-      .navbar
+      //- .navbar
         .navbar-logo
           h1 Alicerce
         .navbar-nav
           a(href='#') item 1
           a(href='#') item 2
 
-      .row
-        .column-is_1
-          ul
-            li
-              a(href='#grid', ) grid
-            li
-              a(href='#typography', ) typography
-            li
-              a(href='#button', ) button
-            //- li
-              a(href='#html-elements', ) html elements
+      .container
+        .row
+          .column-is_1
+            ul
+              li
+                a(href='#grid', ) grid
+              li
+                a(href='#typography', ) typography
+              li
+                a(href='#button', ) button
+              //- li
+                a(href='#html-elements', ) html elements
 
-        .column-is_11
-          section#grid.section
-            include base/grid.pug
+          .column-is_11
+            section#grid.section
+              include base/grid.pug
 
-          section#typography.section
-            include base/typography.pug
+            section#typography.section
+              include base/typography.pug
 
-          section#button.section
-            include elements/button.pug
+            section#button.section
+              include elements/button.pug
 
 
 
-          //- section#html-elements.section
-            include base/html-elements.pug
+            //- section#html-elements.section
+              include base/html-elements.pug
 
 
 
