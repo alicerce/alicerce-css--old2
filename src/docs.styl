@@ -11,7 +11,11 @@ body
   background-size var(--vertical-rhythm) 100%, 100% calc(var(--vertical-rhythm) * 2), 100% var(--vertical-rhythm)
   background-position 0 0, 0 0, 0 0
 
-  code
+  .code *
+    font-size 16px !important
+    line-height 24px !important
+
+  p code
     color red
 
 .demo
@@ -60,8 +64,6 @@ body
           --visibility visible
           --opacity 1
 
-
-
     [class*='column']
       --background-color $color-bg
       background-color var(--background-color)
@@ -72,6 +74,9 @@ body
       text-align center
       transition color .2s linear
       z-index 2
+      display flex
+      justify-content center
+      align-items center
 
       &:hover
         z-index 3
