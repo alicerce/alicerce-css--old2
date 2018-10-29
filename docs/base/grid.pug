@@ -266,31 +266,33 @@ mixin generateDoc($sectionObj, $headingHeight = 0)
     if ($headingHeight < 4) {
       $headingHeight++
     }
-    var $titleClass = $headingsSizes[$headingHeight]
+    const $titleTag = `h${$headingHeight}`
+    const $titleClass = $headingsSizes[$headingHeight]
 
-  if($sectionObj.title !== undefined && $sectionObj.title !== '')
-    .row
-      .column-is_12
-        h2(class=$titleClass)=$sectionObj.title
-
-
-  if($sectionObj.desc !== undefined && $sectionObj.desc !== '')
-    .row
-      .column-is_12
-        each $desc in $sectionObj.desc
-          if($desc !== '')
-            p!=$desc
+  section
+    if($sectionObj.title !== undefined && $sectionObj.title !== '')
+      .row
+        .column-is_12
+          #{$titleTag}(class=$titleClass)=$sectionObj.title
 
 
-  if($sectionObj.demo !== undefined && $sectionObj.demo !== '')
-    .row
-      .column-is_12
-        .demo-grid
-          +includeExample($sectionObj.demo)
+    if($sectionObj.desc !== undefined && $sectionObj.desc !== '')
+      .row
+        .column-is_12
+          each $desc in $sectionObj.desc
+            if($desc !== '')
+              p!=$desc
 
-  if($sectionObj.subSections !== undefined)
-    each $subSections in $sectionObj.subSections
-      +generateDoc($subSections, $headingHeight)
+
+    if($sectionObj.demo !== undefined && $sectionObj.demo !== '')
+      .row
+        .column-is_12
+          .demo-grid
+            +includeExample($sectionObj.demo)
+
+    if($sectionObj.subSections !== undefined)
+      each $subSections in $sectionObj.subSections
+        +generateDoc($subSections, $headingHeight)
 
 //- Generate
 +generateDoc($locale.grid)
