@@ -9,12 +9,12 @@
   "repository": "github:Alicerce/alicerce-css",
   "scripts": {
     "build-all": "mkdir dist && yarn build-css && yarn build-docs",
-    "build-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
+    "build-css": "./node_modules/stylus/bin/stylus src/index.styl --out dist/index.css --use rupture --sourcemap --compress",
     "build-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/",
     "lint": "./node_modules/stylint/bin/stylint src",
     "release": "semantic-release",
     "serve-all": "yarn serve-css & yarn serve-docs & yarn server",
-    "serve-css": "stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch",
+    "serve-css": "./node_modules/stylus/bin/stylus src/index.styl --out dist/index.css --use rupture --sourcemap --watch",
     "serve-docs": "./node_modules/.bin/pug ./docs/ -o ./dist/ -w -P",
     "server": "lite-server --baseDir='dist'"
   },
